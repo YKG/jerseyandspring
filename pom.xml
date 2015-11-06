@@ -67,6 +67,15 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>8.1.14.v20131031</version>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <outputDirectory>${project.basedir}/docker</outputDirectory>
+                    <warName>root</warName>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
     

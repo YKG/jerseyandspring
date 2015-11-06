@@ -3,3 +3,4 @@
 META-INF
 jerseyandspring.iml
 target
+docker/root.war
