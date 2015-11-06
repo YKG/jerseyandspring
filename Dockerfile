@@ -18,7 +18,7 @@ USER jetty
 EXPOSE 8080
 
 #Adding .war 
-ADD root.war /opt/jetty/webapps/root.war
+ADD target/root.war /opt/jetty/webapps/root.war
 
 #CMD ["/opt/jetty/bin/jetty.sh", "-d", "run"]
 # Set defaults for docker run
