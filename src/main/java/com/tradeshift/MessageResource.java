@@ -18,7 +18,7 @@ public class MessageResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getMsg(@QueryParam("limit") int limit){
-        System.out.println("in GET: " +  limit);
+        System.out.println("in GET111: " +  limit);
         return Response.status(200).entity(messageService.getLatestMessages(limit)).build();
     }
 

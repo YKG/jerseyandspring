@@ -1,6 +1,7 @@
 package com.tradeshift;
 
 import com.fasterxml.jackson.databind.util.ISO8601Utils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -8,6 +9,9 @@ import java.util.*;
 
 @Service
 public class MessageService {
+    @Autowired
+    MessagesDAO messagesDAO;
+
     public String getMsg(){
         return "YKG";
     }
@@ -20,7 +24,7 @@ public class MessageService {
 
     public LatestMessages getLatestMessages(int limit){
         LatestMessages latestMessages = new LatestMessages();
-        latestMessages.setCount(2);
+        latestMessages.setCount(messagesDAO.getMessagesCount());
         return latestMessages;
     }
 }
