@@ -9,10 +9,16 @@ RUN apt-get install -y openjdk-7-jre-headless tar
 RUN adduser --system jetty
 RUN mkdir /opt/jetty
 
-ADD http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-distribution/9.1.2.v20140210/jetty-distribution-9.1.2.v20140210.tar.gz /opt/jetty.tar.gz
+#ADD http://archive.eclipse.org/jetty/9.1.2.v20140210/dist/jetty-distribution-9.1.2.v20140210.tar.gz /opt/jetty.tar.gz
+ADD jetty/jetty-distribution-9.1.2.v20140210.tar.gz /opt/
+RUN rm -r /opt/jetty
+RUN mv /opt/jetty-distribution-9.1.2.v20140210/ /opt/jetty
+#RUN ls -l /opt
+#RUN ls -l --color /opt/jetty-distribution-9.1.2.v20140210/ 
+RUN ls -l /opt/jetty
 
 #RUN cat /opt/jetty.tar.gz | tar -C /opt/jetty --strip-components=1 -xz
-RUN tar -zxf /opt/jetty.tar.gz --strip-components=1 -C /opt/jetty
+#RUN tar -zxf /opt/jetty.tar.gz --strip-components=1 -C /opt/jetty
 RUN chown -R jetty /opt/jetty
 USER jetty
 EXPOSE 8080

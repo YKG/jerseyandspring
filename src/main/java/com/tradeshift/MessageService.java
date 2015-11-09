@@ -12,9 +12,15 @@ public class MessageService {
         return "YKG";
     }
 
-    public Object getJSON(Message msgIn){
+    public Message getJSON(Message msgIn){
         msgIn.setId(UUID.randomUUID());
         msgIn.setPostedAt(ISO8601Utils.format(Calendar.getInstance().getTime(), true, TimeZone.getTimeZone("UTC")));
         return msgIn;
+    }
+
+    public LatestMessages getLatestMessages(int limit){
+        LatestMessages latestMessages = new LatestMessages();
+        latestMessages.setCount(2);
+        return latestMessages;
     }
 }
