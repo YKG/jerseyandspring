@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+import java.sql.SQLException;
 
 @Repository
 public class JdbcMessagesDAO implements MessagesDAO {
@@ -16,6 +17,11 @@ public class JdbcMessagesDAO implements MessagesDAO {
     }
 
     public int getMessagesCount() {
+        try {
+            System.out.println(this.jdbcTemplate.getDataSource().getConnection());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return 0;
     }
 }
