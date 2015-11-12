@@ -1,8 +1,8 @@
 package com.tradeshift;
 
-/**
- * Created by ykg on 09/11/15.
- */
+import java.util.List;
+
 public interface MessagesDAO {
-    int getMessagesCount();
+    List<Message> getMessages(int limit);
+    void saveMessage(Message msg);
 }

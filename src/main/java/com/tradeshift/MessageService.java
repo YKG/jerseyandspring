@@ -19,12 +19,15 @@ public class MessageService {
     public Message getJSON(Message msgIn){
         msgIn.setId(UUID.randomUUID());
         msgIn.setPostedAt(ISO8601Utils.format(Calendar.getInstance().getTime(), true, TimeZone.getTimeZone("UTC")));
+        messagesDAO.saveMessage(msgIn);
         return msgIn;
     }
 
     public LatestMessages getLatestMessages(int limit){
+        List<Message> messages = messagesDAO.getMessages(limit);
         LatestMessages latestMessages = new LatestMessages();
-        latestMessages.setCount(messagesDAO.getMessagesCount());
+        latestMessages.setCount(messages.size());
+        latestMessages.setMessages(messages);
         return latestMessages;
     }
 }

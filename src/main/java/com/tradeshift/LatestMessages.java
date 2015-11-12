@@ -1,6 +1,7 @@
 package com.tradeshift;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class LatestMessages {
     public int getCount() {
@@ -11,14 +12,14 @@ public class LatestMessages {
         this.count = count;
     }
 
-    public ArrayList<Message> getMessages() {
+    public List<Message> getMessages() {
         return messages;
     }
 
-    public void setMessages(ArrayList<Message> messages) {
+    public void setMessages(List<Message> messages) {
         this.messages = messages;
     }
 
     int count; // TODO long? BigInteger?
-    ArrayList<Message> messages;
+    List<Message> messages;
 }
